@@ -1,2 +1,3 @@
 # corenlp-complete-docker
-Dockerfile for creating the complete, updated version of Stanford CoreNLP Server
+Dockerfile for creating the complete, updated version of Stanford CoreNLP Server.
+Server](http://stanfordnlp.github.io/CoreNLP/corenlp-server.html) and opens port 9000. Includes the latest github build and all updated models, which is more recent than the installable zip downloadable [here](http://stanfordnlp.github.io/CoreNLP/corenlp-server.html). This enables, among other things, a new sentiment model. See issues with using the older zip file [here](https://github.com/stanfordnlp/CoreNLP/issues/170). For complete information on using the server, see the documentation in the first link.
