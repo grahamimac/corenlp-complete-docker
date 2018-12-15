@@ -14,13 +14,3 @@ To run the server and connect it to another Docker container, run the following:
 ```
 docker run -itPd --name name_the_container --link other_container_name:other_container_name graham3333/corenlp-complete
 ```
-
-## Potential Issues
-Note that in the Dockerfile, the CLASSPATH environment variable is hardcoded, which may present issues as CoreNLP is updated. To check that the environemnt variable is the latest, in a bash script, use:
-
-```
-export CLASSPATH="`find . -name '*.jar'`"
-echo $CLASSPATH
-```
-
-The output should match the Dockerfile. If it does not, update the Dockerfile with the new CLASSPATH.
