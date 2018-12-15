@@ -19,6 +19,8 @@ RUN wget http://nlp.stanford.edu/software/stanford-corenlp-models-current.jar -O
 
 WORKDIR CoreNLP
 
+export CLASSPATH="`find /CoreNLP -name '*.jar'`"
+
 ENV PORT 9000
 
 EXPOSE 9000
