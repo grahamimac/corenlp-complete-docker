@@ -1,8 +1,9 @@
 FROM ubuntu:latest
 
 RUN apt-get update -y && \
-	apt-get install -y default-jre \
-		default-idk \
+	apt-get install -y apt-utils \
+		default-jre \
+		default-jdk \
 		ant \
 		unzip \
 		wget \
@@ -10,16 +11,16 @@ RUN apt-get update -y && \
 
 RUN git clone https://github.com/stanfordnlp/CoreNLP.git
 
-RUN cd CoreNLP; ant; ant jar; cd classes; jar -cf ../stanford-corenlp.jar edu; cd ../
+RUN cd /CoreNLP; ant; ant jar
 
-RUN wget http://nlp.stanford.edu/software/stanford-english-corenlp-models-current.jar
+RUN cd /CoreNLP/classes; jar -cf ../stanford-corenlp.jar edu; cd /CoreNLP
 
-RUN export CLASSPATH="`find . -name '*.jar'`"; cd ../
+RUN wget http://nlp.stanford.edu/software/stanford-corenlp-models-current.jar -O /CoreNLP/stanford-corenlp-models-current.jar
 
 WORKDIR CoreNLP
 
 ENV PORT 9000
 
-EXPOSE $PORT
+EXPOSE 9000
 
-CMD java -mx4g -cp "javanlp-core.jar:stanford-english-corenlp-models-current.jar:‌​lib/*" edu.stanford.nlp.pipeline.StanfordCoreNLPServer
+CMD java -cp '/CoreNLP/javanlp-core.jar:/CoreNLP/stanford-corenlp-models-current.jar:/CoreNLP/lib/*:/CoreNLP/liblocal/*:/CoreNLP/gradle/wrapper/*:/CoreNLP/libsrc/*:/CoreNLP/stanford-corenlp.jar' -mx4g edu.stanford.nlp.pipeline.StanfordCoreNLPServer
