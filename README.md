@@ -12,7 +12,7 @@ To run the server, you need Docker installed. Run the following command (if you 
 docker run -itd -p 9000:9000 --name corenlp graham3333/corenlp-complete
 ```
 
-If running in a conjunction with other containers, modify as follows:
+If running in conjunction with other containers, modify as follows:
 
 ```
 docker run -itPd --name corenlp --link other_container_name:other_container_name graham3333/corenlp-complete
