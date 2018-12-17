@@ -54,7 +54,7 @@ print(json.dumps(data, sort_keys=True,indent=4, separators=(',', ': ')))
 ```
 library(httr)
 
-url = 'localhost:9000/'
+url = 'http://localhost:9000/'
 query = '{"annotators": "tokenize,ssplit,lemma,pos,ner,depparse,openie,sentiment"}'
 text = 'The quick brown fox jumped over the lazy dog.'
 r <- POST(url, query = list(properties = query), body = text, encode = "form")
