@@ -35,7 +35,7 @@ curl --data 'The quick brown fox jumped over the lazy dog.' 'http://localhost:90
 
 ### Python 
 (Make sure you've installed `requests`, on the command line using: `pip install requests`)
-```
+```python
 import requests
 import json
 
@@ -51,7 +51,7 @@ print(json.dumps(data, sort_keys=True,indent=4, separators=(',', ': ')))
 
 ### R
 (Make sure you've installed `httr` using: `install.packages("httr")`)
-```
+```r
 library(httr)
 
 url = 'http://localhost:9000/'
