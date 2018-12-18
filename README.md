@@ -25,11 +25,11 @@ The service should now be available at http://0.0.0.0:9000 on your local machine
 ### Bash 
 (command line prompt in windows / terminal in Mac)
 If you like `wget`
-```bash
+```
 wget --post-data 'The quick brown fox jumped over the lazy dog.' 'localhost:9000/?properties={"annotators":"tokenize,ssplit,pos","outputFormat":"json"}' -O -
 ```
 OR if you like `curl`
-```bash
+```
 curl --data 'The quick brown fox jumped over the lazy dog.' 'http://localhost:9000/?properties={%22annotators%22%3A%22tokenize%2Cssplit%2Cpos%22%2C%22outputFormat%22%3A%22json%22}' -o -
 ```
 
